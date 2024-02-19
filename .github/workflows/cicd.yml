@@ -6,7 +6,7 @@ on:
   # Deploys the index.js file on push to subfolder src on main branch of this code.
   push:
     branches:
-      - master
+      - main
     paths:
       - 'src/**' # Only trigger on push to subfolder.
   
