@@ -22,7 +22,7 @@ gh secret set KUBE_CONFIG --body {$KUBE_CONFIG}
 
 
 
-set LOAD_BALANCER_PUBLIC_IP (kubectl get service demo-deployment -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+set LOAD_BALANCER_PUBLIC_IP (kubectl get service demodeployment -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 echo http://{$LOAD_BALANCER_PUBLIC_IP}/
 
 
