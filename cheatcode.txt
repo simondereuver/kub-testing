@@ -1,4 +1,4 @@
-set APP_NAME demo-deployment
+set APP_NAME demodeployment
 
 set CONTAINER_REGISTRY_LOGIN_SERVER (az acr show -n {$APP_NAME} --query loginServer -o tsv)
 echo $CONTAINER_REGISTRY_LOGIN_SERVER
@@ -22,8 +22,8 @@ gh secret set KUBE_CONFIG --body {$KUBE_CONFIG}
 
 
 
-set LOAD_BALANCER_PUBLIC_IP (kubectl get service oskartest123 -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-echo http://{$LOAD_BALANCER_PUBLIC_IP}/test
+set LOAD_BALANCER_PUBLIC_IP (kubectl get service demo-deployment -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+echo http://{$LOAD_BALANCER_PUBLIC_IP}/
 
 
 gh workflow run "Deploy Test"
